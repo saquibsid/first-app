@@ -131,27 +131,14 @@ npm run dev
 
 # 📸 Screenshots
 
-Create a folder inside your repo:
-
-```
-/screenshots
-```
-
-Add your images there, for example:
-
-```
-screenshots/chat-ui.png
-screenshots/chat-response.png
-```
-
-Then use this syntax in README:
-
-```
 ## Chat UI
+
 ![Chat UI](./screenshots/chatbot-screen-1.png)
 
 ## AI Response Example
+
 ![AI Response](./screenshots/chatbot-screen-2.png)
+
 ```
 
 ---
@@ -168,3 +155,4 @@ Then use this syntax in README:
 # 🧑‍💻 Author
 
 Full-stack AI chatbot built with modern architecture and clean code practices.
+```
