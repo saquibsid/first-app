@@ -15,4 +15,8 @@ router.get('/api/product/:id/reviews', async (req, res) => {
    reviewController.getReviews(req, res);
 });
 
+router.post('/api/product/:id/reviews/summarize', async (req, res) => {
+   reviewController.summarizeReviews(req, res);
+});
+
 export default router;
