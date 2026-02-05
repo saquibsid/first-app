@@ -11,6 +11,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 model Product {
@@ -44,3 +45,4 @@ model Summary {
   generatedAt DateTime @default(now())
   expiresAt DateTime
 }
+
