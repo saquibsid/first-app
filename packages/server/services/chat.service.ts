@@ -1,6 +1,5 @@
 import { llmClient } from '../llm/llm.client';
 import { conversationRepository } from '../repositories/conversation.repository';
-import OpenAI from 'openai';
 
 interface ChatResponse {
    id: string;
