@@ -23,7 +23,7 @@ export const chatService = {
       const response = await llmClient.generateResponse({
          model: 'gpt-4o-mini',
          instructions,
-         input: prompt,
+         prompt,
          temperature: 0.2,
          maxOutputTokens: 100,
          previousResponseId:
