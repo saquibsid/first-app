@@ -47,6 +47,11 @@ const ChatBot = () => {
 
    return (
       <div className="flex flex-col h-full">
+         <p>
+            This chatbot is powered by AI and can answer questions about the
+            knowledge base. I am providing a summary of the knowledge base
+            content.
+         </p>
          <div className="flex flex-col flex-1 gap-3 mb-3 overflow-y-auto">
             <ChatMessages messages={messages} />
             {typing && <TypingIndicator />}
