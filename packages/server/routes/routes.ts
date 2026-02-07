@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import { chatController } from '../controllers/chat.controller';
+import { reviewController } from '../controllers/review.controller';
 const router = express.Router();
 
 router.get('/', (req: Request, res: Response) => {
@@ -8,6 +9,14 @@ router.get('/', (req: Request, res: Response) => {
 
 router.post('/api/chat', async (req, res) => {
    chatController.sendMessage(req, res);
+});
+
+router.get('/api/product/:id/reviews', async (req, res) => {
+   reviewController.getReviews(req, res);
+});
+
+router.post('/api/product/:id/reviews/summarize', async (req, res) => {
+   reviewController.summarizeReviews(req, res);
 });
 
 export default router;
