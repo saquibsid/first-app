@@ -1,8 +1,11 @@
 import OpenAI from 'openai';
+import { InferenceClient } from '@huggingface/inference';
 
 const client = new OpenAI({
    apiKey: process.env.OPEN_AI_KEY,
 });
+
+const inferenceClient = new InferenceClient(process.env.HF_TOKEN);
 
 type llmInputType = {
    model?: string;
@@ -39,5 +42,23 @@ export const llmClient = {
          id: response.id,
          text: response.output_text,
       };
+   },
+
+   async summarizeReviews(reviews: string) {
+      const chatCompletion = await inferenceClient.chatCompletion({
+         model: 'meta-llama/Llama-3.1-8B-Instruct:novita',
+         messages: [
+            {
+               role: 'system',
+               content:
+                  'You are a helpful assistant that summarizes product reviews into concise summaries that capture the main sentiments and points mentioned in the reviews.',
+            },
+            {
+               role: 'user',
+               content: reviews,
+            },
+         ],
+      });
+      return chatCompletion.choices[0]?.message?.content || '';
    },
 };

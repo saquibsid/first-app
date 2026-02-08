@@ -24,13 +24,14 @@ export const reviewService = {
       const joinedReviews = reviews.map((r) => r.content).join('\n\n');
       const prompt = template.replace('{reviews}', joinedReviews);
 
-      const response = await llmClient.generateResponse({
-         model: 'gpt-4o-mini',
-         prompt,
-         temperature: 0.3,
-         maxOutputTokens: 150,
-      });
-      const summary = response.text;
+      // const response = await llmClient.generateResponse({
+      //    model: 'gpt-4o-mini',
+      //    prompt,
+      //    temperature: 0.3,
+      //    maxOutputTokens: 150,
+      // });
+      const summary = await llmClient.summarizeReviews(joinedReviews);
+      // const summary = response.text;
       await reviewRepository.storeSummary(productId, summary);
       return summary;
    },
