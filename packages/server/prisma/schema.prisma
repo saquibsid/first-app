@@ -46,3 +46,11 @@ model Summary {
   expiresAt DateTime
 }
 
+model User {
+  id Int @id @default(autoincrement())
+  firstName String @db.Text
+  lastName String @db.Text
+  email String @unique
+  password String @db.Text
+  createdAt DateTime @default(now())
+}
